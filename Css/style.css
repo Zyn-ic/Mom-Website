@@ -1,0 +1,333 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* Set a base font size */
+body {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    background-color: #50354D;
+    margin: 0;
+}
+
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: #181A1B;
+}
+
+#text-container {
+    display: flex;
+    gap: 30px;
+    align-items: center; /* Align text to center vertically */
+}
+
+#text {
+    color: white;
+    text-decoration: none;
+}
+
+#logo {
+    margin-left: 25px;
+    width: 122px;
+    height: 63px;
+}
+
+.image-section {
+    position: relative;
+    height: 400px; /* Adjust the height as needed */
+    background-image: url("../Misc/Pics/placeholder.webp"); /* Specify the path to your image */
+    background-size: cover;
+    background-position: center;
+    color: white; /* Text color on the overlay card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 35px;
+}
+
+.overlay-card {
+    background-color: #62445F; /* Adjust the background color and opacity as needed */
+    padding: 30px;
+    height: 50px;
+    max-width: 300px; /* Adjust the max width of the card as needed */
+    font-size: larger;
+}
+
+.overlay-card h2 {
+    padding-bottom: 15px;
+    padding-left: 0;
+    font-size: small;
+}
+
+/* About section */
+.products {
+    background-color: #181A1B;
+    padding: 40px;
+    color: white;
+}
+
+.products h2{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.products p{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.products-section {
+    display: flex;
+    flex-wrap: wrap; /* Allow products to wrap to the next line */
+    justify-content: space-between;
+    margin: 20px 10%; /* Add margin to the top and bottom of the products section, and adjust the left and right margin to center the products */
+}
+
+.product {
+    width: calc(30% - 20px); /* Adjust the width of each product and account for margin */
+    background-color: #62445F; /* Set a background color for each product */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(97, 99, 98, 0.521); /* Add a subtle box shadow for depth */
+    border-radius: 8px; /* Add rounded corners */
+    text-align: center;
+    margin-bottom: 20px; /* Add margin to the bottom of each product */
+}
+
+.product-button {
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.3s; /* Add a smooth transition effect */
+}
+
+.product-button:hover {
+    transform: scale(1.1); /* Zoom in on hover */
+}
+
+.product-button img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    transition: transform 0.3s; /* Add a smooth transition effect */
+}
+
+.product-button:hover img {
+    transform: scale(1); /* Reset scale on hover */
+}
+
+.product h3{
+    font-size: larger;
+    padding-bottom: 15px;
+}
+.product p {
+    color: white; /* Set a color for the product title and description */
+}
+
+
+.about-me-section {
+    color: white;
+    background-color: #181A1B;
+    display: flex;
+    flex-direction: column; /* Stack subsections vertically */
+    align-items: center;
+    gap: 20px; /* Adjust the gap between subsections */
+}
+
+.about-me-section h1 {
+    margin-top: 50px;
+    font-size: x-large;
+}
+
+.about-me-subsection {
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    align-items: center;
+    width: 94%;
+    padding: 25px;
+    background-color: #50354D;
+    border: 1px solid #50354D; /* Purple border color */
+}
+
+.description {
+    flex: 1; /* Description takes up the available space */
+}
+
+.description h3 {
+    font-size: larger;
+    padding-bottom: 15px;
+}
+
+.description p {
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.image-container {
+    margin-right: 20px; /* Add some margin between description and image */
+}
+
+.image-container img {
+    width: 250px;
+    border: 2px solid #50354D; /* Purple border color */
+    border-radius: 8px; /* Optional: Add rounded corners to the image */
+}
+
+
+/* Add or update these styles in your existing CSS */
+
+footer {
+    background-color: #62445F;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; /* Separate the left and right sections */
+    align-items: center;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.right-links img{
+    width: 75px;
+    height: 50px;
+    margin: 0 10px;
+}
+
+.left-links img{
+    width: 150px;
+    height: 100px;
+    margin: 0 10px;
+}
+
+
+
+.left-links {
+    display: flex;
+    align-items: center;
+}
+
+.right-links {
+    display: flex;
+    align-items: center;
+}
+
+.left-links a {
+    margin-right: 10px; /* Add margin between the links on the left */
+}
+
+
+
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 600px) {
+    /* Adjust styles for smaller screens */
+    #text-container {
+        margin-top: 5px;
+        gap: 5px;
+        text-align: right;
+        margin-right: 1px;
+    }
+
+    .overlay-card {
+        max-width: 80%; /* Adjust the max width for smaller screens */
+    }
+
+    .products-section {
+        justify-content: center;
+    }
+
+    .product {
+        width: 100%;
+    }
+
+    .about-me-subsection {
+        max-width: 100%; /* Set a maximum width for the subsection */
+        width: 94%;
+        margin: 0 auto; /* Center the subsection horizontally */
+        padding: 25px;
+        background-color: #50354D;
+        border: 1px solid #50354D; /* Purple border color */
+        box-sizing: border-box; /* Include padding and border in the total width */
+        display: flex;
+        flex-direction: column; /* Stack description and image vertically */
+        align-items: center;
+    }
+
+    .description {
+        flex: 1; /* Description takes up the available space */
+        margin-bottom: 20px; /* Add some space between description and image */
+        text-align: center;
+    }
+
+    .description h3 {
+        font-size: larger;
+        padding-bottom: 15px;
+    }
+
+    .description p {
+        margin-bottom: 10px;
+    }
+
+    .image-container {
+        width: 100%; /* Image container takes up the full width */
+        text-align: center;
+    }
+
+    .image-container img {
+        max-width: 100%; /* Make the image responsive within its container */
+        height: auto; /* Maintain the aspect ratio */
+        border: 2px solid #50354D; /* Purple border color */
+        border-radius: 8px; /* Optional: Add rounded corners to the image */
+    }
+
+
+    footer {
+        background-color: #62445F;
+        flex-direction: column; /* Stack the sections vertically on smaller screens */
+        text-align: center; /* Center-align the content */
+    }
+
+    .right-links img{
+        width: 50px;
+        height: 50px;
+    }
+    
+    .left-links img{
+        width: 75px;
+        height: 60px;
+    }
+    
+
+    .right-links {
+        margin-top: 10px; /* Add margin between the left and right sections */
+    }
+
+    .left-links a {
+        margin: 5px; /* Add margin to the links on the left for spacing */
+    }
+
+    .right-links a {
+        margin: 5px; /* Add margin to the links on the right for spacing */
+    }
+    
+}
