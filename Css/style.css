@@ -84,9 +84,14 @@ body {
     border-radius: 10px;
     background-color: #62445F; /* Adjust the background color and opacity as needed */
     padding: 30px;
-    height: 50px;
-    max-width: 300px; /* Adjust the max width of the card as needed */
-    font-size: larger;
+    height: 100px;
+    max-width: 350px; /* Adjust the max width of the card as needed */
+}
+
+.overlay-card h1{
+    font-size: x-large;
+    padding-bottom: 8px;
+    font-family: Inter-bold;
 }
 
 .overlay-card h2 {
@@ -419,6 +424,7 @@ footer a {
     .overlay-card {
         border-radius: 10px;
         max-width: 80%; /* Adjust the max width for smaller screens */
+        height: 33%;
     }
 
     .products-section {
