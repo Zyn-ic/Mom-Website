@@ -163,7 +163,7 @@ body {
     display: flex;
     flex-direction: column; /* Stack subsections vertically */
     align-items: center;
-    gap: 20px; /* Adjust the gap between subsections */
+    gap: 16px; /* Adjust the gap between subsections */
 }
 
 .about-me-section h1 {
@@ -182,6 +182,7 @@ body {
     padding: 25px;
     background-color: #50354D;
     border: 1px solid #50354D; /* Purple border color */
+    margin-bottom: 10px;
 }
 
 .description {
@@ -191,6 +192,7 @@ body {
 .description h3 {
     font-size: larger;
     padding-bottom: 15px;
+    font-family: Inter-bold;
 }
 
 .description p {
@@ -264,6 +266,7 @@ footer a {
         gap: 5px;
         text-align: right;
         margin-right: 1px;
+
     }
 
     .overlay-card {
@@ -289,6 +292,7 @@ footer a {
         display: flex;
         flex-direction: column; /* Stack description and image vertically */
         align-items: center;
+        margin-bottom: 10px;
     }
 
 
