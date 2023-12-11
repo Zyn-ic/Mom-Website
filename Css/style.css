@@ -50,6 +50,11 @@ body {
     align-items: center; /* Align text to center vertically */
 }
 
+#text-container .active{
+    font-family: Inter-Bold;
+    text-decoration: overline;
+}
+
 #text {
     color: white;
     text-decoration: none;
@@ -62,6 +67,7 @@ body {
 }
 
 .image-section {
+    border-radius: 10px;
     position: relative;
     height: 400px; /* Adjust the height as needed */
     background-image: url("../Misc/Pics/placeholder.webp"); /* Specify the path to your image */
@@ -75,6 +81,7 @@ body {
 }
 
 .overlay-card {
+    border-radius: 10px;
     background-color: #62445F; /* Adjust the background color and opacity as needed */
     padding: 30px;
     height: 50px;
@@ -138,6 +145,7 @@ body {
 }
 
 .product-button img {
+    border-radius: 10px;
     width: 100%;
     height: auto;
     margin-bottom: 10px;
@@ -157,6 +165,44 @@ body {
 }
 
 
+.products-section {
+    /* Existing styles */
+    margin-bottom: 40px; /* Add space for the pagination */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.pagination button img {
+    width: 20px; /* Adjust the width of the image as needed */
+    height: 20px; /* Adjust the height of the image as needed */
+}
+
+.pagination button:hover {
+    background-color: #eee;
+}
+
+.pagination button.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+  
+
+
+
+
 .about-me-section {
     color: white;
     background-color: #181A1B;
@@ -174,6 +220,7 @@ body {
 }
 
 .about-me-subsection {
+    border-radius: 10px;
     padding-left: 5px;
     padding-right: 5px;
     display: flex;
@@ -255,7 +302,107 @@ footer a {
     margin-right: 10px; /* Add margin between the links on the left */
 }
 
-
+.receipt {
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px round #ddd;
+    font-family: Arial, sans-serif;
+    background-color: #181A1B;
+    color: #ddd;
+    border-radius: 10px;
+    display: none;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header img {
+    width: 100px;
+  }
+  .header p {
+      cursor: pointer;
+  }
+  
+  .item {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .item img {
+    width: 250px;
+    margin-right: 20px;
+  }
+  
+  .details {
+    flex: 1;
+  }
+  
+  .name {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .price {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .description {
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  
+  .ingredients {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .options {
+    margin-bottom: 20px;
+  }
+  
+  .options p {
+    margin-bottom: 5px;
+  }
+  
+  .sizes {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .sizes button {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .footer {
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  .footer p {
+    margin-bottom: 5px;
+  }
+  
+  .tags {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  
+  .tag {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
 
 
 /* Media queries for responsiveness */
@@ -270,6 +417,7 @@ footer a {
     }
 
     .overlay-card {
+        border-radius: 10px;
         max-width: 80%; /* Adjust the max width for smaller screens */
     }
 
@@ -282,6 +430,7 @@ footer a {
     }
 
     .about-me-subsection {
+        border-radius: 10px;
         max-width: 100%; /* Set a maximum width for the subsection */
         width: 94%;
         margin: 0 auto; /* Center the subsection horizontally */
@@ -352,5 +501,39 @@ footer a {
     .right-links a {
         margin: 5px; /* Add margin to the links on the right for spacing */
     }
+
+    .receipt {
+        width: 100%; /* Stretch to full width on small screens */
+        padding: 10px; /* Reduce padding for better fit */
+      }
+    
+      .header img {
+        width: 70px; /* Scale down logo for smaller screens */
+      }
+    
+      .item {
+        flex-direction: column; /* Stack items vertically on mobile */
+      }
+    
+      .item img {
+        width: 100%; /* Image takes full width of container */
+        margin: 0 0 10px; /* Adjust margins for better spacing */
+      }
+    
+      .details p {
+        font-size: 16px; /* Adjust text size for readability */
+      }
+    
+      .options, .footer {
+        margin-top: 10px; /* Reduce margin for compact layout */
+      }
+    
+      .sizes {
+        flex-wrap: wrap; /* Wrap button options on small screens */
+      }
+    
+      .tag {
+        font-size: 12px; /* Reduce tag text size for better fit */
+      }
     
 }
