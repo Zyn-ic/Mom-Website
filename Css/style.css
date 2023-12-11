@@ -1,4 +1,16 @@
-/* Reset some default styles */
+
+@font-face {
+    font-family: Inter-Bold; 
+    src: url('../Misc/font/Inter-SemiBold.ttf') format('woff2'),
+         url('../Misc/font/Inter-SemiBold.ttf') format('woff');
+}
+
+@font-face {
+    font-family: Inter-regular; 
+    src: url('../Misc/font/Inter-Regular.ttf') format('woff2'),
+         url('../Misc/font/Inter-Regular.ttf') format('woff');
+}
+
 body,
 h1,
 h2,
@@ -16,9 +28,10 @@ a {
 }
 
 /* Set a base font size */
+
 body {
     font-size: 16px;
-    font-family: Arial, sans-serif;
+    font-family: Inter-regular;
     background-color: #50354D;
     margin: 0;
 }
@@ -73,6 +86,7 @@ body {
     padding-bottom: 15px;
     padding-left: 0;
     font-size: small;
+    font-family: Inter-bold;
 }
 
 /* About section */
@@ -85,6 +99,8 @@ body {
 .products h2{
     text-align: center;
     padding-bottom: 10px;
+    font-family: Inter-bold;
+    font-size: larger;
 }
 
 .products p{
@@ -153,6 +169,8 @@ body {
 .about-me-section h1 {
     margin-top: 50px;
     font-size: x-large;
+    font-family: Inter-bold;
+    
 }
 
 .about-me-subsection {
@@ -272,6 +290,7 @@ footer a {
         flex-direction: column; /* Stack description and image vertically */
         align-items: center;
     }
+
 
     .description {
         flex: 1; /* Description takes up the available space */
