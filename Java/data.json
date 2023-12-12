@@ -1,0 +1,14 @@
+{
+    "itemname":{
+        "description":"item description",
+        "ingredients":["apple", "banana"],
+        "price":0,
+        "tags":["vegan", "natural", "diabities"],
+        "bottle-sizes":{
+            "16oz": 2,
+            "24oz": 4,
+            "32oz": 6
+        }
+        
+    }
+}
