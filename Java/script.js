@@ -16,13 +16,15 @@ function getDataFromStorage(key) {
 // Function to dynamically format the data into pages
 function formatDataIntoPages(data, itemsPerPage) {
     const pages = [];
-    const totalItems = data.length;
+    const itemKeys = Object.keys(data);
+    const totalItems = itemKeys.length;
     let currentPage = 1;
     let startIndex = 0;
 
     while (startIndex < totalItems) {
         const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
-        const pageItems = data.slice(startIndex, endIndex);
+        const pageItemKeys = itemKeys.slice(startIndex, endIndex);
+        const pageItems = pageItemKeys.map(key => ({ name: key, ...data[key] }));
         pages.push({ page: currentPage, items: pageItems });
         startIndex += itemsPerPage;
         currentPage++;
@@ -31,42 +33,43 @@ function formatDataIntoPages(data, itemsPerPage) {
     return pages;
 }
 
-// Function to fetch JSON data
-async function fetchDataOrInitialize() {
-    try {
-        // Check if data is already in memory or localStorage
-        if (globalData) {
-            return globalData;
+// Function to retrieve data (without fetching)
+function fetchDataOrInitialize() {
+    return new Promise((resolve, reject) => {
+        try {
+            // Check if data is already in memory or localStorage
+            if (globalData) {
+                resolve(globalData);
+                return;
+            }
+
+            // Attempt to get data from localStorage
+            const storedData = getDataFromStorage('jsonData');
+            if (storedData) {
+                globalData = storedData;
+                resolve(globalData);
+                return;
+            }
+
+            // Access the embedded data directly
+            if (typeof embeddedData === 'object') {
+                globalData = embeddedData;
+
+                // Save the data to localStorage for future use
+                saveDataToStorage('jsonData', globalData);
+
+                resolve(globalData);
+            } else {
+                reject(new Error('Error accessing embedded data'));
+            }
+        } catch (error) {
+            console.error('Error fetching or parsing data:', error.message);
+            // You can provide a default or fallback data here if needed
+            reject(error);
         }
-
-        // Attempt to get data from localStorage
-        const storedData = getDataFromStorage('jsonData');
-        if (storedData) {
-            globalData = storedData;
-            return globalData;
-        }
-
-        // Change the URL to the actual location of your JSON file or API endpoint
-        const response = await fetch("data.json");
-
-        // Check if the fetch was successful (status code 200)
-        if (!response.ok) {
-            throw new Error(`Failed to fetch data (Status ${response.status})`);
-        }
-
-        // Parse the JSON response
-        globalData = await response.json();
-
-        // Save the data to localStorage for future use
-        saveDataToStorage('jsonData', globalData);
-
-        return globalData;
-    } catch (error) {
-        console.error('Error fetching or parsing data:', error.message);
-        // You can provide a default or fallback data here if needed
-        return null;
-    }
+    });
 }
+
 
 // Example usage
 document.addEventListener('DOMContentLoaded', async function () {
@@ -81,8 +84,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     const formattedPages = formatDataIntoPages(jsonData, itemsPerPage);
 
     // Save the formatted data for future use
-    saveDataToStorage('formattedPages', formattedPages);
+    //saveDataToStorage('formattedPages', formattedPages);
 
     // Use the formatted data as needed
     console.log(formattedPages);
 });
+
+    
