@@ -1,6 +1,7 @@
 // script.js
 
 let globalData;
+var formattedPages;
 
 // Function to save data to localStorage
 function saveDataToStorage(key, value) {
@@ -19,19 +20,20 @@ function formatDataIntoPages(data, itemsPerPage) {
     const itemKeys = Object.keys(data);
     const totalItems = itemKeys.length;
     let currentPage = 1;
-    let startIndex = 0;
 
-    while (startIndex < totalItems) {
+    for (let startIndex = 0; startIndex < totalItems; startIndex += itemsPerPage) {
         const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
         const pageItemKeys = itemKeys.slice(startIndex, endIndex);
         const pageItems = pageItemKeys.map(key => ({ name: key, ...data[key] }));
         pages.push({ page: currentPage, items: pageItems });
-        startIndex += itemsPerPage;
         currentPage++;
     }
 
     return pages;
 }
+
+  
+
 
 // Function to retrieve data (without fetching)
 function fetchDataOrInitialize() {
@@ -39,6 +41,7 @@ function fetchDataOrInitialize() {
         try {
             // Check if data is already in memory or localStorage
             if (globalData) {
+                console.log("already in memory or localStorage");
                 resolve(globalData);
                 return;
             }
@@ -46,12 +49,13 @@ function fetchDataOrInitialize() {
             // Attempt to get data from localStorage
             const storedData = getDataFromStorage('jsonData');
             if (storedData) {
+                console.log("data from localStorage");
                 globalData = storedData;
                 resolve(globalData);
                 return;
             }
 
-            // Access the embedded data directly
+            // Access the embedded data directly from the script data.js
             if (typeof embeddedData === 'object') {
                 globalData = embeddedData;
 
@@ -73,6 +77,8 @@ function fetchDataOrInitialize() {
 
 // Example usage
 document.addEventListener('DOMContentLoaded', async function () {
+
+    localStorage.clear();
     // Fetch or initialize your data
     const jsonData = await fetchDataOrInitialize();
 
@@ -81,13 +87,49 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     // Format the data into pages
     const itemsPerPage = 6;
-    const formattedPages = formatDataIntoPages(jsonData, itemsPerPage);
+    formattedPages = formatDataIntoPages(jsonData, itemsPerPage);
 
     // Save the formatted data for future use
     //saveDataToStorage('formattedPages', formattedPages);
 
     // Use the formatted data as needed
     console.log(formattedPages);
+
+    // Create and append pagination buttons
+    createPaginationButtons(formattedPages.length);
+
+    // Add event listeners to pagination buttons
+    //addEventListenersToButtons();
 });
 
+function createPaginationButtons(numPages) {
+    if (numPages < 2) {
+        return loadPage(1);
+    }
+
+    const paginationContainer = document.createElement('div');
+    paginationContainer.className = 'pagination';
+
+    for (let i = 1; i <= numPages; i++) {
+        const button = document.createElement('button');
+        button.innerHTML = i === 1 ? '<img src="page1-icon.png" alt="Page 1">' : `<img src="page${i}-icon.png" alt="Page ${i}">`;
+        button.onclick = function () {
+            loadPage(i);
+        };
+        paginationContainer.appendChild(button);
+    }
+
+    const container = document.querySelector('.extra');
+    if (container) {
+        container.appendChild(paginationContainer);
+    } else {
+        console.error(`Container with class "${containerClass}" not found.`);
+    }
+}
+
+
+window.addEventListener('beforeunload', function () {
+    console.log("cleared")
+    //localStorage.clear();
+});
     

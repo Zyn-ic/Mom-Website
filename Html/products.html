@@ -7,6 +7,7 @@
    <link rel="stylesheet" href="../Css/style.css"> 
    <script src="../Java/script.js" defer></script>
    <script src="../Java/data.js" defer></script>
+   <script src="../Java/load.js" defer></script>
 </head>
 <body>
 
@@ -25,7 +26,7 @@
 
         <div class="header">
           <img src="../Misc/Pics/logo.png" alt="Company logo">
-          <p><img src="#" alt="x"></p>
+          <p><img src="#" alt="x" id="xImage"></p>
         </div>
 
         <div class="item">
@@ -48,9 +49,9 @@
         <div class="options">
           <p>Bottle sizes:</p>
             <div class="sizes">
-                <button>16oz</button>
-                <button>24oz (+$2.00)</button>
-                <button>32oz (+$3.00)</button>
+                <button id="1">16oz</button>
+                <button id="2">24oz (+$2.00)</button>
+                <button id="3">32oz (+$3.00)</button>
             </div>
         </div>
 
@@ -73,7 +74,7 @@
 
             <div class="product">
                 <button class="product-button">
-                    <img src="../Misc/Pics/placeholder.webp" alt="Product 1">
+                    <img src="../Misc/Pics/placeholder.webp" alt="Product1">
                 </button>
                 <h3>Product 1</h3>
                 <p>Description for Product 1 goes here.</p>
@@ -83,7 +84,7 @@
     
             <div class="product">
                 <button class="product-button">
-                    <img src="../Misc/Pics/placeholder.webp" alt="Product 1">
+                    <img src="../Misc/Pics/placeholder.webp" alt="Product2">
                 </button>
                 <h3>Product 1</h3>
                 <p>Description for Product 1 goes here.</p>
@@ -93,7 +94,7 @@
 
             <div class="product">
                 <button class="product-button">
-                    <img src="../Misc/Pics/placeholder.webp" alt="Product 1">
+                    <img src="../Misc/Pics/placeholder.webp" alt="Product3">
                 </button>
                 <h3>Product 1</h3>
                 <p>Description for Product 1 goes here.</p>
@@ -102,7 +103,7 @@
 
             <div class="product">
                 <button class="product-button">
-                    <img src="../Misc/Pics/placeholder.webp" alt="Product 1">
+                    <img src="../Misc/Pics/placeholder.webp" alt="Product4">
                 </button>
                 <h3>Product 1</h3>
                 <p>Description for Product 1 goes here.</p>
@@ -111,7 +112,7 @@
 
             <div class="product">
                 <button class="product-button">
-                    <img src="../Misc/Pics/placeholder.webp" alt="Product 1">
+                    <img src="../Misc/Pics/placeholder.webp" alt="Product5">
                 </button>
                 <h3>Product 1</h3>
                 <p>Description for Product 1 goes here.</p>
@@ -120,7 +121,7 @@
 
             <div class="product">
                 <button class="product-button">
-                    <img src="../Misc/Pics/placeholder.webp" alt="Product 1">
+                    <img src="../Misc/Pics/placeholder.webp" alt="Product6">
                 </button>
                 <h3>Product 1</h3>
                 <p>Description for Product 1 goes here.</p>
@@ -128,7 +129,7 @@
             </div>
 
 
-            <div class="pagination">
+        <!--   <div class="pagination">
                 <button class="active" onclick="loadPage(1)">
                     <img src="page1-icon.png" alt="Page 1">
                 </button>
@@ -138,11 +139,11 @@
                 <button onclick="loadPage(3)">
                     <img src="next-icon.png" alt="Next">
                 </button>
-            </div>
+            </div>--> 
 
         </div>        
 
-      
+      <div class="extra"></div>
     
 
 </body>

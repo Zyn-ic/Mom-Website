@@ -7,7 +7,7 @@ var embeddedData = {
         "tags":["vegan", "natural", "diabities", "pressure"],
         "bottle-sizes":{
             "16oz": 0,
-            "24oz": 25,
+            "24oz": 15,
             "32oz": 30
         } 
     },
@@ -24,15 +24,15 @@ var embeddedData = {
         }
     },
 
-    "cooling":{
+    "Cooling":{
         "description":"item description",
         "ingredients":["bukut leaf", "pyhsic-nut", "lime", "cream of tater"],
         "price":15,
         "tags":["vegan", "natural", "diabities"],
         "bottle-sizes":{
             "16oz": 0,
-            "24oz": -15,
-            "32oz": -15
+            "24oz": null,
+            "32oz": null
         }
     },
 
@@ -42,9 +42,9 @@ var embeddedData = {
         "price":25,
         "tags":["vegan", "natural", "diabities"],
         "bottle-sizes":{
-            "16oz": -25,
+            "16oz": null,
             "24oz": 0,
-            "32oz": -25
+            "32oz": null
         }
     },
 
@@ -67,7 +67,7 @@ var embeddedData = {
         "tags":["vegan", "natural", "diabities"],
         "bottle-sizes":{
             "16oz": 0,
-            "24oz": 45,
+            "24oz": 25,
             "32oz": null
         }  
     }
