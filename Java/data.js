@@ -56,7 +56,7 @@ var embeddedData = {
         "bottle-sizes":{
             "16oz": 0,
             "24oz": 15,
-            "32oz": -20
+            "32oz": null
         }
     },
 

@@ -1,7 +1,10 @@
 function othersection(num, numm){
-   document.querySelector(".products-section").style.display = 'none';
-   document.querySelector(".receipt").style.display = "block";
+    
+    //visible and invisible stuff
+    document.querySelector(".products-section").style.display = 'none';
+    document.querySelector(".receipt").style.display = "block";
 
+    //make the X acutally clickable
     xImage = document.getElementById('xImage');
     var index = 0;
 
@@ -11,10 +14,10 @@ function othersection(num, numm){
         index = null;
     });
 
-
+    //set info
     document.querySelector(".name").innerHTML = formattedPages[numm]["items"][num].name;
     document.querySelector(".price").innerHTML = formattedPages[numm]["items"][num].price;
-    document.querySelector(".description").innerHTML = formattedPages[numm]["items"][num].description;
+    document.querySelector(".description").innerHTML = "Description: "+ formattedPages[numm]["items"][num].description;
 
     const ingredientsList = document.querySelector('.ingredients');
 
@@ -28,12 +31,29 @@ function othersection(num, numm){
         ingredientsList.appendChild(listItem);
     });
 
+    const tagsContainer = document.querySelector('.tags');
+
+    // Remove all existing tags
+    tagsContainer.innerHTML = '';
+
+    // Create and add new tags based on the array
+    formattedPages[numm]["items"][num].tags.forEach(tagText => {
+        const newTag = document.createElement('span');
+        newTag.className = 'tag';
+        newTag.textContent = tagText;
+        tagsContainer.appendChild(newTag);
+    });
+
+
     function handle1(){
         if (formattedPages[numm]["items"][num]["bottle-sizes"]["16oz"] == null){
         return document.querySelector(".price").innerHTML = "Not available";
          
         }
 
+        document.getElementById('b1').style.backgroundColor = "#62445F";
+        document.getElementById('b2').style.backgroundColor = "#181A1B";
+        document.getElementById('b3').style.backgroundColor = "#181A1B";
         document.querySelector(".price").innerHTML = (formattedPages[numm]["items"][num].price + (formattedPages[numm]["items"][num]["bottle-sizes"]["16oz"]));
     }
 
@@ -43,6 +63,9 @@ function othersection(num, numm){
          
         }
 
+        document.getElementById('b1').style.backgroundColor = "#181A1B";
+        document.getElementById('b2').style.backgroundColor = "#62445F";
+        document.getElementById('b3').style.backgroundColor = "#181A1B";
         document.querySelector(".price").innerHTML = (formattedPages[numm]["items"][num].price + (formattedPages[numm]["items"][num]["bottle-sizes"]["24oz"]));
     }
 
@@ -52,12 +75,36 @@ function othersection(num, numm){
          
         }
 
+        document.getElementById('b1').style.backgroundColor = "#181A1B";
+        document.getElementById('b2').style.backgroundColor = "#181A1B";
+        document.getElementById('b3').style.backgroundColor = "#62445F";
         document.querySelector(".price").innerHTML = (formattedPages[numm]["items"][num].price + (formattedPages[numm]["items"][num]["bottle-sizes"]["32oz"]));
     }
 
-    document.getElementById('1').addEventListener('click', handle1);
-    document.getElementById('2').addEventListener('click', handle2);
-    document.getElementById('3').addEventListener('click', handle3);
+    // handle button clicks
+    document.getElementById('b1').addEventListener('click', handle1);
+    document.getElementById('b2').addEventListener('click', handle2);
+    document.getElementById('b3').addEventListener('click', handle3);
+
+    //put in image
+
+    if (formattedPages[numm]["items"][num]["bottle-sizes"]["32oz"] != null){
+        document.getElementById('b1').style.backgroundColor = "#181A1B";
+        document.getElementById('b2').style.backgroundColor = "#181A1B";
+        document.getElementById('b3').style.backgroundColor = "#62445F"; 
+    }
+
+    if (formattedPages[numm]["items"][num]["bottle-sizes"]["24oz"] != null){
+        document.getElementById('b1').style.backgroundColor = "#181A1B";
+        document.getElementById('b2').style.backgroundColor = "#62445F";
+        document.getElementById('b3').style.backgroundColor = "#181A1B"; 
+    }
+
+    if (formattedPages[numm]["items"][num]["bottle-sizes"]["16oz"] != null){
+        document.getElementById('b1').style.backgroundColor = "#62445F";
+        document.getElementById('b2').style.backgroundColor = "#181A1B";
+        document.getElementById('b3').style.backgroundColor = "#181A1B";  
+    }
 }
 
 

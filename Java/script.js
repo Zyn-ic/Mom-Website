@@ -1,7 +1,7 @@
 // script.js
 
 let globalData;
-var formattedPages;
+let formattedPages;
 
 // Function to save data to localStorage
 function saveDataToStorage(key, value) {

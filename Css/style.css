@@ -380,6 +380,10 @@ footer a {
     display: flex;
     justify-content: space-between;
   }
+
+  #b1{
+    background-color: #62445F;
+  }
   
   .sizes button {
     padding: 5px 10px;
